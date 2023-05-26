@@ -1,13 +1,15 @@
-git --version
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-git config --global --list permet d'afficher facilement la configuration globale de Git
-git init initialiser le projet Git 
-git add README.md
-git commit -m"Mon premier commit"
-git clone git@github.com:danian3wa/reflections.git va automatiquement créer un dépôt Git local lié au dépôt distant.
-git clone git@github.com:danian3wa/reflections.git nouveau_nom
-git status ermet de visualiser les fichier non-suivis, modifiés ou indexés
+# Commandes git
+
+***git --version***
+***git config --global user.name "John Doe"***
+***git config --global user.email johndoe@example.com***
+***git config --global --list*** permet d'afficher facilement la configuration globale de Git
+***git init*** initialiser le projet Git 
+***git add README.md***
+***git commit -m"Mon premier commit"***
+***git clone git@github.com:danian3wa/reflections.git*** va automatiquement créer un dépôt Git local lié au dépôt distant.
+***git clone git@github.com:danian3wa/reflections.git nouveau_nom***
+***git status*** permet de visualiser les fichier non-suivis, modifiés ou indexés
 git add .gitignore fichier
 git restore element_cibe ->  annuler les modifications effectuées sur un fichier, afin de rétablir son état par rapport au dernier commit en date
 git restore element_cibe --staged -> le fichier reviendra dans les fichiers modifiés/non-suivis, selon son état initial. En revanche, les modifications apportées à ce fichier ne seront pas perdues
@@ -41,12 +43,12 @@ git rm downloads/file.txt --cached permet de supprimer un fichier de l'index de 
     # ignorer tous les fichiers .txt sous le répertoire doc/
     doc/**/*.txt
 
-git config --global core.excludesfile ~/.gitignore -> possible de configurer un fichier .gitignore global à l'ensemble du poste de travail
-git diff permet d'effectuer des comparaisons entre plusieurs sources de données Git, permet de comparer l'état des fichiers depuis le dernier commit
-git diff --color-words permet de visualiser le détail de changements par mots plutôt que par ligne
-git diff --cached Si des modifications ont déjà été ajoutées à la zone de staging, elles ne seront pas visibles par défaut
-git remote add origin git@github.com:danian3wa/reflections.git permet de synchroniser le projet versionné localement avec son dépôt distant
-git remote -v permet de lister les différents dépôts auxquels le projet est rattaché
+***git config --global core.excludesfile ~/.gitignore*** -> possible de configurer un fichier .gitignore global à l'ensemble du poste de travail
+***git diff*** permet d'effectuer des comparaisons entre plusieurs sources de données Git, permet de comparer l'état des fichiers depuis le dernier commit
+*git diff --color-words* permet de visualiser le détail de changements par mots plutôt que par ligne
+*git diff --cached* Si des modifications ont déjà été ajoutées à la zone de staging, elles ne seront pas visibles par défaut
+*git remote add origin git@github.com:danian3wa/reflections.git* permet de synchroniser le projet versionné localement avec son dépôt distant
+*git remote -v* permet de lister les différents dépôts auxquels le projet est rattaché
 git remote show nom_du_depot permet de visualiser les détails d'un dépôt déjà configuré
 git fetch récupère les informations liées à la branche exemple_fetch_branch présente sur le dépôt distant, mais aucune modification réelle du projet local n'a été effectuée.
 git merge va quant à elle intégrer localement les modifications présentes sur le dépôt distant.
