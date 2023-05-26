@@ -77,79 +77,117 @@
     # ignorer tous les fichiers .txt sous le répertoire doc/
     doc/**/*.txt
 
-***git config --global core.excludesfile ~/.gitignore*** -> possible de configurer un fichier .gitignore global à l'ensemble du poste de travail.
 
-***git diff*** permet d'effectuer des comparaisons entre plusieurs sources de données Git, permet de comparer l'état des fichiers depuis le dernier commit.
+#### possible de configurer un fichier .gitignore global à l'ensemble du poste de travail.
+    git config --global core.excludesfile ~/.gitignore 
 
-***git diff --color-words*** permet de visualiser le détail de changements par mots plutôt que par ligne.
+#### permet d'effectuer des comparaisons entre plusieurs sources de données Git, permet de comparer l'état des fichiers depuis le dernier commit.
+    git diff
 
-***git diff --cached*** Si des modifications ont déjà été ajoutées à la zone de staging, elles ne seront pas visibles par défaut.
+#### permet de visualiser le détail de changements par mots plutôt que par ligne.
+    git diff --color-words
 
-***git remote add origin git@github.com:danian3wa/reflections.git*** permet de synchroniser le projet versionné localement avec son dépôt distant.
+#### Si des modifications ont déjà été ajoutées à la zone de staging, elles ne seront pas visibles par défaut.
+    git diff --cached
 
-***git remote -v*** permet de lister les différents dépôts auxquels le projet est rattaché.
+#### permet de synchroniser le projet versionné localement avec son dépôt distant.
+    git remote add origin git@github.com:danian3wa/reflections.git
 
-***git remote show nom_du_depot*** permet de visualiser les détails d'un dépôt déjà configuré.
+#### permet de lister les différents dépôts auxquels le projet est rattaché.
+    git remote -v
 
-***git fetch*** récupère les informations liées à la branche exemple_fetch_branch présente sur le dépôt distant, mais aucune modification réelle du projet local n'a été effectuée.
+#### permet de visualiser les détails d'un dépôt déjà configuré.
+    git remote show nom_du_depot
 
-***git merge*** va quant à elle intégrer localement les modifications présentes sur le dépôt distant.
+#### récupère les informations liées à la branche exemple_fetch_branch présente sur le dépôt distant, mais aucune modification réelle du projet local n'a été effectuée.
+    git fetch
 
-***git pull*** permet d'effectuer les commande git fetch et git merge en une seule fois. les modifications présentes sur le dépôt distant sont immédiatement intégrées au projet local.
+#### va quant à elle intégrer localement les modifications présentes sur le dépôt distant.
+    git merge
 
-***git puch origin exemple_pull_branch*** envoie les modifications locales vers le dépôt distant nommé origin et met à jour la branche exemple_pull_branch.
+#### permet d'effectuer les commande git fetch et git merge en une seule fois. les modifications présentes sur le dépôt distant sont immédiatement intégrées au projet local.
+    git pull
 
-***git remote add gitlab https://gitlab.com/dan.ian3wa/reveal.js***
+#### envoie les modifications locales vers le dépôt distant nommé origin et met à jour la branche exemple_pull_branch.
+    git puch origin exemple_pull_branch
 
-***git remote rename origin old-origin***
+#### 
+    git remote add gitlab https://gitlab.com/dan.ian3wa/reveal.js
 
-***git remote add origin https://gitlab.com/dan.ian3wa/reveal.js***
+#### 
+    it remote rename origin old-origin
 
-***git remote remove old-origin***
+#### 
+    git remote add origin https://gitlab.com/dan.ian3wa/reveal.js
 
-***git push origin master***
+#### 
+    git remote remove old-origin
 
-***git log*** affiche tous les commits de la branche, du plus récent au plus ancien.
+#### 
+    git push origin master
 
-***git log -p*** présente pour chaque commit les éléments modifiés en préfixant par - les suppressions, et par + les ajouts.
+#### affiche tous les commits de la branche, du plus récent au plus ancien.
+    git log
 
-***git log --stat*** permet de visualiser de manière concise les modifications réalisées dans chaque commit.
+#### présente pour chaque commit les éléments modifiés en préfixant par - les suppressions, et par + les ajouts.
+    git log -p
 
-***git log -2*** affiche les deux derniers commits présents sur la branche.
+#### permet de visualiser de manière concise les modifications réalisées dans chaque commit.
+    git log --stat
 
-***git log -p -2*** l'historique des modifications apportées par les deux derniers commits est affiché.
+#### affiche les deux derniers commits présents sur la branche.
+it log -2
 
-***git config --global alias.{nom_alias} {commande_git}***
+#### l'historique des modifications apportées par les deux derniers commits est affiché.
+    git log -p -2
 
-***git config --global alias.logmodif 'git log -p'*** crée un alias global dans la configuration de Git nommé logmodif et renvoyant à la commande git log -p.
+#### crée un alias global dans la configuration de Git nommé nom_alias et renvoyant à la commande git commande_git.
+    git config --global alias.{nom_alias} {commande_git}
 
-***git logmodif***
+#### crée un alias global dans la configuration de Git nommé logmodif et renvoyant à la commande git log -p.
+    git config --global alias.logmodif 'git log -p'
 
-***git config --global alias.last-5 'log --stat -5'***  Définissez un alias qui permettra d'afficher l'historique de votre projet, avec un résumé condensé des dernières modifications pour les 5 derniers commit.
+#### utilisation de  l'alias global dans la configuration de Git nommé logmodif et renvoyant à la commande git log -p
+    git logmodif
 
-***git log --pretty=oneline***  le résultat obtenu affiche chaque commit de l'historique sur une seule ligne. Chaque ligne contient alors l'identifiant unique du commit, la branche sur laquelle il se trouve, et son commentaire.
+#### Définissez un alias qui permettra d'afficher l'historique de votre projet, avec un résumé condensé des dernières modifications pour les 5 derniers commit.
+    git config --global alias.last-5 'log --stat -5' 
 
-***git log --pretty=short*** affiche sur plusieurs lignes, pour chaque commit, son identifiant unique avec la branche concernée, le nom de l'auteur du commit et le commentaire associé.
+#### le résultat obtenu affiche chaque commit de l'historique sur une seule ligne. Chaque ligne contient alors l'identifiant unique du commit, la branche sur laquelle il se trouve, et son commentaire.
+    git log --pretty=oneline
 
-***git log --pretty=fuller*** va afficher des informations supplémentaires à celles déjà présentes avec l'option short.
+#### affiche sur plusieurs lignes, pour chaque commit, son identifiant unique avec la branche concernée, le nom de l'auteur du commit et le commentaire associé.
+    git log --pretty=short
 
-***git log --oneline*** affiche les résultats comme avec l'utilisation de git log --pretty=oneline, en tronquant l'identifiant des commits.
+#### va afficher des informations supplémentaires à celles déjà présentes avec l'option short.
+    git log --pretty=fuller
 
-***git log --pretty=format:"%h - %an, %ad : %s"*** affichent un résumé de l'identifiant du commit suivi du nom de l'auteur, de la date au format date définie dans la configuration de Git, puis du commentaire du commit.
+#### affiche les résultats comme avec l'utilisation de git log --pretty=oneline, en tronquant l'identifiant des commits.
+    git log --oneline
 
-***git log --pretty=format:"%h : %s"*** affiche une version courte des identifiants des commits et les commentaires associés.
+#### affichent un résumé de l'identifiant du commit suivi du nom de l'auteur, de la date au format date définie dans la configuration de Git, puis du commentaire du commit.
+    git log --pretty=format:"%h - %an, %ad : %s"
 
-***git log --graph*** permet d'afficher sous la forme d'un graphique les arborescences des branches contenues dans l'historique.
+#### affiche une version courte des identifiants des commits et les commentaires associés.
+    git log --pretty=format:"%h : %s"
 
-***git log --graph --pretty=format:"%h : %s"***  affiche l'arborescence des branches et, pour chacun des commits, son identifiant au format court et le commentaire qui lui est associé.
+#### permet d'afficher sous la forme d'un graphique les arborescences des branches contenues dans l'historique.
+    git log --graph
 
-***git log --since=yesterday  --pretty=format:"%h : %s"*** affiche tous les commits depuis la veille, et les formate pour n'afficher que leur identifiant au format court et leur commentaire.
+#### affiche l'arborescence des branches et, pour chacun des commits, son identifiant au format court et le commentaire qui lui est associé.
+    git log --graph --pretty=format:"%h : %s"
 
-***git log --since=2.days  --pretty=format:"%h : %s"*** affiche les commits dans le même format que précédemment, mais affiche tous les commits jusqu'à deux jours en arrière.
+#### affiche tous les commits depuis la veille, et les formate pour n'afficher que leur identifiant au format court et leur commentaire.
+    git log --since=yesterday  --pretty=format:"%h : %s"
 
-***git log -SHello -p***  affiche les commits dont les modification contiennent la chaîne de caractères Hello et affiche les informations par défaut des commits, puis montre le détail des modifications qu'ils contiennent.
+#### affiche les commits dans le même format que précédemment, mais affiche tous les commits jusqu'à deux jours en arrière.
+    git log --since=2.days  --pretty=format:"%h : %s"
 
-***git log --author***
+####  affiche les commits dont les modification contiennent la chaîne de caractères Hello et affiche les informations par défaut des commits, puis montre le détail des modifications qu'ils contiennent.
+    git log -SHello -p
+
+#### 
+    git log --author
 
 #### permet de Basculement sur la nouvelle branche '8.x' la branche '8.x' est paramétrée pour suivre 'origin/8.x'.
     git checkout 8.x
