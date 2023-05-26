@@ -135,30 +135,30 @@ permet de verifier la version du git installé.
 
 ***git log --author***
 
-permet de Basculement sur la nouvelle branche '8.x' la branche '8.x' est paramétrée pour suivre 'origin/8.x'.
+#### permet de Basculement sur la nouvelle branche '8.x' la branche '8.x' est paramétrée pour suivre 'origin/8.x'.
     git checkout 8.x
 
-permettra d'afficher l'historique de tous les commits depuis 30 jours, ainsi que les branches dont ils proviennent. Ces messages seront affichés sous la forme : identifiant_court - message_commit  - auteur, le date.
+#### permettra d'afficher l'historique de tous les commits depuis 30 jours, ainsi que les branches dont ils proviennent. Ces messages seront affichés sous la forme : identifiant_court - message_commit  - auteur, le date.
     git log --graph --since=30.days --pretty=format:"%h - %s - %an - %ad"
 
 
-Commande permettant l'affichage : identifiant_court_commit [de couleur rouge] : message de commit (il y a X [de couleur verte]) - auteur [de couleur bleue]
+#### Commande permettant l'affichage : identifiant_court_commit [de couleur rouge] : message de commit (il y a X [de couleur verte]) - auteur [de couleur bleue]
     git log --graph --pretty=format:'%Cred%h%Creset -%d %s (%Cgreen%cr%Creset) - %Cblue%an' --abbrev-commit
 
-Ajout en tant qu'alias, à nommer selon votre convenance, ici log-defi
+#### Ajout en tant qu'alias, à nommer selon votre convenance, ici log-defi
     git config --global alias.log-defi "log --graph --pretty=format:'%Cred%h%Creset -%d %s (%Cgreen%cr%Creset) - %Cblue%an' --abbrev-commit"
 
-Afficher les commits présents sur une branche et pas une autre
+#### Afficher les commits présents sur une branche et pas une autre
     git log-defi branche1..banche2
 
-Afficher les commits de la dernière semaine
+#### Afficher les commits de la dernière semaine
     git log-defi --since="1 week ago"
 
-Afficher les commits des deux derniers mois
+#### Afficher les commits des deux derniers mois
     git log-defi --since="2 months ago"
 
-Afficher les commits d'un auteur spécifique
+#### Afficher les commits d'un auteur spécifique
     git log-defi --author="Fabien"
 
-Afficher les commits contenant un message spécifique 
+#### Afficher les commits contenant un message spécifique 
     git log-defi --grep="contenu à rechercher"
