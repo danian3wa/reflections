@@ -136,7 +136,7 @@
     git log --stat
 
 #### affiche les deux derniers commits présents sur la branche.
-it log -2
+    git log -2
 
 #### l'historique des modifications apportées par les deux derniers commits est affiché.
     git log -p -2
