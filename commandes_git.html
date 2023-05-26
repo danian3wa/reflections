@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="commandes-git">Commandes git</h1>
+    <h4 id="permet-de-verifier-la-version-du-git-install-">permet de verifier la version du git installé.</h4>
+    <pre><code>git <span class="hljs-comment">--version</span>
+    </code></pre><h4 id="permet-">permet.</h4>
+    <pre><code>git config --global user<span class="hljs-selector-class">.name</span> <span class="hljs-string">"Prénom Nom"</span>
+    </code></pre><h4 id="permet-">permet.</h4>
+    <pre><code><span class="hljs-selector-tag">git</span> <span class="hljs-selector-tag">config</span> <span class="hljs-selector-tag">--global</span> <span class="hljs-selector-tag">user</span><span class="hljs-selector-class">.email</span> <span class="hljs-selector-tag">nomprenom</span>@<span class="hljs-keyword">example</span>.<span class="hljs-keyword">com</span>
+    </code></pre><h4 id="permet-d-afficher-facilement-la-configuration-globale-de-git-">permet d&#39;afficher facilement la configuration globale de Git.</h4>
+    <pre><code><span class="hljs-comment">git</span> <span class="hljs-comment">config</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">global</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">list</span>
+    </code></pre><h4 id="initialiser-le-projet-git-">initialiser le projet Git.</h4>
+    <pre><code><span class="hljs-attribute">git init</span>
+    </code></pre><h4 id="permet-">permet.</h4>
+    <pre><code>git <span class="hljs-keyword">add</span><span class="bash"> README.md</span>
+    </code></pre><h4 id="permet-">permet.</h4>
+    <pre><code><span class="hljs-attribute">git</span> commit -m<span class="hljs-string">"Mon premier commit"</span>
+    </code></pre><h4 id="va-automatiquement-cr-er-un-d-p-t-git-local-li-au-d-p-t-distant-">va automatiquement créer un dépôt Git local lié au dépôt distant.</h4>
+    <pre><code>git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:danian3wa/reflections.git
+    </code></pre><h4 id="permet-">permet.</h4>
+    <pre><code>git clone git@github<span class="hljs-selector-class">.com</span>:danian3wa/reflections<span class="hljs-selector-class">.git</span> nouveau_nom
+    </code></pre><h4 id="permet-de-visualiser-les-fichier-non-suivis-modifi-s-ou-index-s-">permet de visualiser les fichier non-suivis, modifiés ou indexés.</h4>
+    <pre><code><span class="hljs-attribute">git status</span>
+    </code></pre><h4 id="fichier-permet-">fichier permet.</h4>
+    <pre><code>git <span class="hljs-keyword">add</span><span class="bash"> .gitignore</span>
+    </code></pre><h4 id="annuler-les-modifications-effectu-es-sur-un-fichier-afin-de-r-tablir-son-tat-par-rapport-au-dernier-commit-en-date-">annuler les modifications effectuées sur un fichier, afin de rétablir son état par rapport au dernier commit en date.</h4>
+    <pre><code>git <span class="hljs-built_in">restore</span> element_cibe
+    </code></pre><h4 id="le-fichier-reviendra-dans-les-fichiers-modifi-s-non-suivis-selon-son-tat-initial-en-revanche-les-modifications-apport-es-ce-fichier-ne-seront-pas-perdues-">le fichier reviendra dans les fichiers modifiés/non-suivis, selon son état initial. En revanche, les modifications apportées à ce fichier ne seront pas perdues.</h4>
+    <pre><code>git <span class="hljs-keyword">restore</span> element_cibe <span class="hljs-comment">--staged</span>
+    </code></pre><h4 id="lorsque-l-on-souhaite-d-placer-proprement-un-fichier-ou-un-r-pertoire-">Lorsque l&#39;on souhaite déplacer &quot;proprement&quot; un fichier ou un répertoire.</h4>
+    <pre><code>git <span class="hljs-keyword">mv</span> dossier_cibe nouveau_dossier_cibe
+    </code></pre><h4 id="perme-de-supprimer-un-fichier-de-l-espace-de-travail-et-de-l-index-de-git-">perme de supprimer un fichier de l&#39;espace de travail et de l&#39;index de Git.</h4>
+    <pre><code><span class="hljs-attribute">git</span> rm element_cibe
+    </code></pre><h4 id="permet-de-supprimer-un-fichier-de-l-index-de-git-sans-pour-autant-supprimer-celui-ci-de-l-espace-de-travail-">permet de supprimer un fichier de l&#39;index de Git sans pour autant supprimer celui-ci de l&#39;espace de travail.</h4>
+    <pre><code>git rm downloads/<span class="hljs-built_in">file</span>.txt <span class="hljs-comment">--cached</span>
+    </code></pre><h2 id="fichier-gitignore">Fichier .gitignore</h2>
+    <pre><code><span class="hljs-comment">#permet d'ajouter un commentaire</span>
+    
+    * permet d<span class="hljs-string">'ignorer tous les éléments répondant à un certain pattern, par exemple *.docx ignore tous les documents Word
+    
+    ! permet d'</span>ajouter une <span class="hljs-keyword">exception</span> à l<span class="hljs-string">'une des règles préalablement écrites, par exemple !documentation.docx
+    
+    /fichier-temporaire.tmp permet d'</span>ignorer le fichier fichier-temporaire.tmp situé à la racine du projet
+    
+    build/ ignore tous les éléments situés dans le répertoire build
+    
+    <span class="hljs-comment"># pas de fichiers .pdf</span>
+    *.pdf
+    
+    <span class="hljs-comment"># mais suivre documentation.pdf malgré la règle précédente</span>
+    !documentation.pdf
+    
+    <span class="hljs-comment"># ignorer le fichier TODO à la racine du projet</span>
+    /TODO
+    
+    <span class="hljs-comment"># ignorer tous les fichiers dans le répertoire cache</span>
+    cache/
+    
+    <span class="hljs-comment"># ignorer tous les fichiers .txt sous le répertoire doc/</span>
+    doc<span class="hljs-comment">/**/</span>*.txt
+    </code></pre><h4 id="possible-de-configurer-un-fichier-gitignore-global-l-ensemble-du-poste-de-travail-">possible de configurer un fichier .gitignore global à l&#39;ensemble du poste de travail.</h4>
+    <pre><code>git config --global core<span class="hljs-selector-class">.excludesfile</span> ~/<span class="hljs-selector-class">.gitignore</span> 
+    </code></pre><h4 id="permet-d-effectuer-des-comparaisons-entre-plusieurs-sources-de-donn-es-git-permet-de-comparer-l-tat-des-fichiers-depuis-le-dernier-commit-">permet d&#39;effectuer des comparaisons entre plusieurs sources de données Git, permet de comparer l&#39;état des fichiers depuis le dernier commit.</h4>
+    <pre><code><span class="hljs-attribute">git diff</span>
+    </code></pre><h4 id="permet-de-visualiser-le-d-tail-de-changements-par-mots-plut-t-que-par-ligne-">permet de visualiser le détail de changements par mots plutôt que par ligne.</h4>
+    <pre><code>git <span class="hljs-built_in">diff</span> --<span class="hljs-built_in">color</span>-words
+    </code></pre><h4 id="si-des-modifications-ont-d-j-t-ajout-es-la-zone-de-staging-elles-ne-seront-pas-visibles-par-d-faut-">Si des modifications ont déjà été ajoutées à la zone de staging, elles ne seront pas visibles par défaut.</h4>
+    <pre><code>git diff <span class="hljs-comment">--cached</span>
+    </code></pre><h4 id="permet-de-synchroniser-le-projet-versionn-localement-avec-son-d-p-t-distant-">permet de synchroniser le projet versionné localement avec son dépôt distant.</h4>
+    <pre><code>git remote <span class="hljs-keyword">add</span><span class="bash"> origin git@github.com:danian3wa/reflections.git</span>
+    </code></pre><h4 id="permet-de-lister-les-diff-rents-d-p-ts-auxquels-le-projet-est-rattach-">permet de lister les différents dépôts auxquels le projet est rattaché.</h4>
+    <pre><code><span class="hljs-attribute">git remote -v</span>
+    </code></pre><h4 id="permet-de-visualiser-les-d-tails-d-un-d-p-t-d-j-configur-">permet de visualiser les détails d&#39;un dépôt déjà configuré.</h4>
+    <pre><code>git remote <span class="hljs-keyword">show</span> nom_du_depot
+    </code></pre><h4 id="r-cup-re-les-informations-li-es-la-branche-exemple_fetch_branch-pr-sente-sur-le-d-p-t-distant-mais-aucune-modification-r-elle-du-projet-local-n-a-t-effectu-e-">récupère les informations liées à la branche exemple_fetch_branch présente sur le dépôt distant, mais aucune modification réelle du projet local n&#39;a été effectuée.</h4>
+    <pre><code><span class="hljs-attribute">git fetch</span>
+    </code></pre><h4 id="va-quant-elle-int-grer-localement-les-modifications-pr-sentes-sur-le-d-p-t-distant-">va quant à elle intégrer localement les modifications présentes sur le dépôt distant.</h4>
+    <pre><code>git <span class="hljs-keyword">merge</span>
+    </code></pre><h4 id="permet-d-effectuer-les-commande-git-fetch-et-git-merge-en-une-seule-fois-les-modifications-pr-sentes-sur-le-d-p-t-distant-sont-imm-diatement-int-gr-es-au-projet-local-">permet d&#39;effectuer les commande git fetch et git merge en une seule fois. les modifications présentes sur le dépôt distant sont immédiatement intégrées au projet local.</h4>
+    <pre><code><span class="hljs-attribute">git pull</span>
+    </code></pre><h4 id="envoie-les-modifications-locales-vers-le-d-p-t-distant-nomm-origin-et-met-jour-la-branche-exemple_pull_branch-">envoie les modifications locales vers le dépôt distant nommé origin et met à jour la branche exemple_pull_branch.</h4>
+    <pre><code>git puch <span class="hljs-built_in">origin</span> exemple_pull_branch
+    </code></pre><h4 id="permet">permet</h4>
+    <pre><code>git remote <span class="hljs-built_in">add</span> gitlab http<span class="hljs-variable">s:</span>//gitlab.<span class="hljs-keyword">com</span>/dan.ian3wa/reveal.js
+    </code></pre><h4 id="permet">permet</h4>
+    <pre><code>git remote <span class="hljs-built_in">rename</span> <span class="hljs-built_in">origin</span> old-<span class="hljs-built_in">origin</span>
+    </code></pre><h4 id="permet">permet</h4>
+    <pre><code>git remote <span class="hljs-built_in">add</span> origin http<span class="hljs-variable">s:</span>//gitlab.<span class="hljs-keyword">com</span>/dan.ian3wa/reveal.js
+    </code></pre><h4 id="permet">permet</h4>
+    <pre><code>git remote <span class="hljs-built_in">remove</span> old-<span class="hljs-built_in">origin</span>
+    </code></pre><h4 id="permet">permet</h4>
+    <pre><code>git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> master
+    </code></pre><h4 id="affiche-tous-les-commits-de-la-branche-du-plus-r-cent-au-plus-ancien-">affiche tous les commits de la branche, du plus récent au plus ancien.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span>
+    </code></pre><h4 id="pr-sente-pour-chaque-commit-les-l-ments-modifi-s-en-pr-fixant-par-les-suppressions-et-par-les-ajouts-">présente pour chaque commit les éléments modifiés en préfixant par - les suppressions, et par + les ajouts.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> -p
+    </code></pre><h4 id="permet-de-visualiser-de-mani-re-concise-les-modifications-r-alis-es-dans-chaque-commit-">permet de visualiser de manière concise les modifications réalisées dans chaque commit.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--stat</span>
+    </code></pre><h4 id="affiche-les-deux-derniers-commits-pr-sents-sur-la-branche-">affiche les deux derniers commits présents sur la branche.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-number">-2</span>
+    </code></pre><h4 id="l-historique-des-modifications-apport-es-par-les-deux-derniers-commits-est-affich-">l&#39;historique des modifications apportées par les deux derniers commits est affiché.</h4>
+    <pre><code>git log -<span class="hljs-selector-tag">p</span> -<span class="hljs-number">2</span>
+    </code></pre><h4 id="cr-e-un-alias-global-dans-la-configuration-de-git-nomm-nom_alias-et-renvoyant-la-commande-git-commande_git-">crée un alias global dans la configuration de Git nommé nom_alias et renvoyant à la commande git commande_git.</h4>
+    <pre><code>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> <span class="hljs-keyword">alias</span>.{nom_alias} {commande_git}
+    </code></pre><h4 id="cr-e-un-alias-global-dans-la-configuration-de-git-nomm-logmodif-et-renvoyant-la-commande-git-log-p-">crée un alias global dans la configuration de Git nommé logmodif et renvoyant à la commande git log -p.</h4>
+    <pre><code>git config --<span class="hljs-keyword">global</span> <span class="hljs-keyword">alias</span>.logmodif <span class="hljs-string">'git log -p'</span>
+    </code></pre><h4 id="utilisation-de-l-alias-global-dans-la-configuration-de-git-nomm-logmodif-et-renvoyant-la-commande-git-log-p">utilisation de  l&#39;alias global dans la configuration de Git nommé logmodif et renvoyant à la commande git log -p</h4>
+    <pre><code><span class="hljs-attribute">git logmodif</span>
+    </code></pre><h4 id="d-finissez-un-alias-qui-permettra-d-afficher-l-historique-de-votre-projet-avec-un-r-sum-condens-des-derni-res-modifications-pour-les-5-derniers-commit-">Définissez un alias qui permettra d&#39;afficher l&#39;historique de votre projet, avec un résumé condensé des dernières modifications pour les 5 derniers commit.</h4>
+    <pre><code>git config --<span class="hljs-keyword">global</span> <span class="hljs-keyword">alias</span>.last<span class="hljs-number">-5</span> <span class="hljs-string">'log --stat -5'</span> 
+    </code></pre><h4 id="le-r-sultat-obtenu-affiche-chaque-commit-de-l-historique-sur-une-seule-ligne-chaque-ligne-contient-alors-l-identifiant-unique-du-commit-la-branche-sur-laquelle-il-se-trouve-et-son-commentaire-">le résultat obtenu affiche chaque commit de l&#39;historique sur une seule ligne. Chaque ligne contient alors l&#39;identifiant unique du commit, la branche sur laquelle il se trouve, et son commentaire.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--pretty=oneline</span>
+    </code></pre><h4 id="affiche-sur-plusieurs-lignes-pour-chaque-commit-son-identifiant-unique-avec-la-branche-concern-e-le-nom-de-l-auteur-du-commit-et-le-commentaire-associ-">affiche sur plusieurs lignes, pour chaque commit, son identifiant unique avec la branche concernée, le nom de l&#39;auteur du commit et le commentaire associé.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--pretty=short</span>
+    </code></pre><h4 id="va-afficher-des-informations-suppl-mentaires-celles-d-j-pr-sentes-avec-l-option-short-">va afficher des informations supplémentaires à celles déjà présentes avec l&#39;option short.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--pretty=fuller</span>
+    </code></pre><h4 id="affiche-les-r-sultats-comme-avec-l-utilisation-de-git-log-pretty-oneline-en-tronquant-l-identifiant-des-commits-">affiche les résultats comme avec l&#39;utilisation de git log --pretty=oneline, en tronquant l&#39;identifiant des commits.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--oneline</span>
+    </code></pre><h4 id="affichent-un-r-sum-de-l-identifiant-du-commit-suivi-du-nom-de-l-auteur-de-la-date-au-format-date-d-finie-dans-la-configuration-de-git-puis-du-commentaire-du-commit-">affichent un résumé de l&#39;identifiant du commit suivi du nom de l&#39;auteur, de la date au format date définie dans la configuration de Git, puis du commentaire du commit.</h4>
+    <pre><code>git <span class="hljs-keyword">log</span> --pretty=<span class="hljs-keyword">format</span>:<span class="hljs-string">"%h - %an, %ad : %s"</span>
+    </code></pre><h4 id="affiche-une-version-courte-des-identifiants-des-commits-et-les-commentaires-associ-s-">affiche une version courte des identifiants des commits et les commentaires associés.</h4>
+    <pre><code>git <span class="hljs-keyword">log</span> --pretty=<span class="hljs-keyword">format</span>:<span class="hljs-string">"%h : %s"</span>
+    </code></pre><h4 id="permet-d-afficher-sous-la-forme-d-un-graphique-les-arborescences-des-branches-contenues-dans-l-historique-">permet d&#39;afficher sous la forme d&#39;un graphique les arborescences des branches contenues dans l&#39;historique.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--graph</span>
+    </code></pre><h4 id="affiche-l-arborescence-des-branches-et-pour-chacun-des-commits-son-identifiant-au-format-court-et-le-commentaire-qui-lui-est-associ-">affiche l&#39;arborescence des branches et, pour chacun des commits, son identifiant au format court et le commentaire qui lui est associé.</h4>
+    <pre><code>git <span class="hljs-keyword">log</span> --graph --pretty=<span class="hljs-keyword">format</span>:<span class="hljs-string">"%h : %s"</span>
+    </code></pre><h4 id="affiche-tous-les-commits-depuis-la-veille-et-les-formate-pour-n-afficher-que-leur-identifiant-au-format-court-et-leur-commentaire-">affiche tous les commits depuis la veille, et les formate pour n&#39;afficher que leur identifiant au format court et leur commentaire.</h4>
+    <pre><code>git <span class="hljs-keyword">log</span> --since=yesterday  --pretty=<span class="hljs-keyword">format</span>:<span class="hljs-string">"%h : %s"</span>
+    </code></pre><h4 id="affiche-les-commits-dans-le-m-me-format-que-pr-c-demment-mais-affiche-tous-les-commits-jusqu-deux-jours-en-arri-re-">affiche les commits dans le même format que précédemment, mais affiche tous les commits jusqu&#39;à deux jours en arrière.</h4>
+    <pre><code>git <span class="hljs-keyword">log</span> --since=<span class="hljs-number">2</span>.days  --pretty=<span class="hljs-keyword">format</span>:<span class="hljs-string">"%h : %s"</span>
+    </code></pre><h4 id="affiche-les-commits-dont-les-modification-contiennent-la-cha-ne-de-caract-res-hello-et-affiche-les-informations-par-d-faut-des-commits-puis-montre-le-d-tail-des-modifications-qu-ils-contiennent-">affiche les commits dont les modification contiennent la chaîne de caractères Hello et affiche les informations par défaut des commits, puis montre le détail des modifications qu&#39;ils contiennent.</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> -SHello -p
+    </code></pre><h4 id="afficher-les-commits-d-un-auteur-sp-cifique">Afficher les commits d&#39;un auteur spécifique</h4>
+    <pre><code>git <span class="hljs-built_in">log</span> <span class="hljs-comment">--author="author"</span>
+    </code></pre><h4 id="permet-de-basculement-sur-la-nouvelle-branche-8-x-la-branche-8-x-est-param-tr-e-pour-suivre-origin-8-x-">permet de Basculement sur la nouvelle branche &#39;8.x&#39; la branche &#39;8.x&#39; est paramétrée pour suivre &#39;origin/8.x&#39;.</h4>
+    <pre><code><span class="hljs-selector-tag">git</span> <span class="hljs-selector-tag">checkout</span> 8<span class="hljs-selector-class">.x</span>
+    </code></pre><h4 id="permettra-d-afficher-l-historique-de-tous-les-commits-depuis-30-jours-ainsi-que-les-branches-dont-ils-proviennent-ces-messages-seront-affich-s-sous-la-forme-identifiant_court-message_commit-auteur-le-date-">permettra d&#39;afficher l&#39;historique de tous les commits depuis 30 jours, ainsi que les branches dont ils proviennent. Ces messages seront affichés sous la forme : identifiant_court - message_commit  - auteur, le date.</h4>
+    <pre><code>git <span class="hljs-keyword">log</span> --graph --since=<span class="hljs-number">30</span>.days --pretty=<span class="hljs-keyword">format</span>:<span class="hljs-string">"%h - %s - %an - %ad"</span>
+    </code></pre><h4 id="commande-permettant-l-affichage-identifiant_court_commit-de-couleur-rouge-message-de-commit-il-y-a-x-de-couleur-verte-auteur-de-couleur-bleue-">Commande permettant l&#39;affichage : identifiant_court_commit [de couleur rouge] : message de commit (il y a X [de couleur verte]) - auteur [de couleur bleue]</h4>
+    <pre><code>git log --graph --pretty=format:'<span class="hljs-built_in">%Cred</span><span class="hljs-built_in">%h</span><span class="hljs-built_in">%Creset</span> -<span class="hljs-built_in">%d</span> <span class="hljs-built_in">%s</span> (<span class="hljs-built_in">%Cgreen</span><span class="hljs-built_in">%cr</span><span class="hljs-built_in">%Creset</span>) - <span class="hljs-built_in">%Cblue</span><span class="hljs-built_in">%an</span>' --abbrev-commit
+    </code></pre><h4 id="ajout-en-tant-qu-alias-nommer-selon-votre-convenance-ici-log-defi">Ajout en tant qu&#39;alias, à nommer selon votre convenance, ici log-defi</h4>
+    <pre><code>git config --global alias.log-defi <span class="hljs-string">"log --graph --pretty=format:'%Cred%h%Creset -%d %s (%Cgreen%cr%Creset) - %Cblue%an' --abbrev-commit"</span>
+    </code></pre><h4 id="afficher-les-commits-pr-sents-sur-une-branche-et-pas-une-autre">Afficher les commits présents sur une branche et pas une autre</h4>
+    <pre><code><span class="hljs-function"><span class="hljs-title">git</span></span> <span class="hljs-built-in">log</span>-defi branche1..banche2
+    </code></pre><h4 id="afficher-les-commits-de-la-derni-re-semaine">Afficher les commits de la dernière semaine</h4>
+    <pre><code>git <span class="hljs-built_in">log</span>-defi <span class="hljs-comment">--since="1 week ago"</span>
+    </code></pre><h4 id="afficher-les-commits-des-deux-derniers-mois">Afficher les commits des deux derniers mois</h4>
+    <pre><code>git <span class="hljs-built_in">log</span>-defi <span class="hljs-comment">--since="2 months ago"</span>
+    </code></pre><h4 id="afficher-les-commits-d-un-auteur-sp-cifique">Afficher les commits d&#39;un auteur spécifique</h4>
+    <pre><code>git <span class="hljs-built_in">log</span>-defi <span class="hljs-comment">--author="Fabien"</span>
+    </code></pre><h4 id="afficher-les-commits-contenant-un-message-sp-cifique">Afficher les commits contenant un message spécifique</h4>
+    <pre><code>git <span class="hljs-keyword">log</span>-defi --<span class="hljs-keyword">grep</span>=<span class="hljs-string">"contenu à rechercher"</span>
+    </code></pre>
+</body>
+</html>
