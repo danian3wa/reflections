@@ -1,21 +1,37 @@
 # Commandes git
 
 ***git --version*** - permet de verifier la version du git.
+
 ***git config --global user.name "John Doe"*** - permet.
+
 ***git config --global user.email johndoe@example.com***- permet.
+
 ***git config --global --list*** permet d'afficher facilement la configuration globale de Git.
+
 ***git init*** initialiser le projet Git.
+
 ***git add README.md*** - permet.
-***git commit -m"Mon premier commit"***
+
+***git commit -m"Mon premier commit"*** - permet.
+
 ***git clone git@github.com:danian3wa/reflections.git*** va automatiquement créer un dépôt Git local lié au dépôt distant.
+
 ***git clone git@github.com:danian3wa/reflections.git nouveau_nom*** - permet.
+
 ***git status*** permet de visualiser les fichier non-suivis, modifiés ou indexés
+
 ***git add .gitignore*** fichier - permet.
+
 ***git restore element_cibe*** ->  annuler les modifications effectuées sur un fichier, afin de rétablir son état par rapport au dernier commit en date.
+
 ***git restore element_cibe*** --staged -> le fichier reviendra dans les fichiers modifiés/non-suivis, selon son état initial. En revanche, les modifications apportées à ce fichier ne seront pas perdues.
+
 ***git mv dossier_cibe nouveau_dossier_cibe*** -> Lorsque l'on souhaite déplacer "proprement" un fichier ou un répertoire.
+
 ***git rm element_cibe*** perme de supprimer un fichier de l'espace de travail et de l'index de Git.
+
 ***git rm downloads/file.txt --cached*** permet de supprimer un fichier de l'index de Git sans pour autant supprimer celui-ci de l'espace de travail.
+
 ## .gitignore
 
     # permet d'ajouter un commentaire
