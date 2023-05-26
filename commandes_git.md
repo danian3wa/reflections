@@ -1,42 +1,58 @@
 # Commandes git
 
 
-permet de verifier la version du git installé.
+#### permet de verifier la version du git installé.
     git --version
 
-***git config --global user.name "Prénom Nom"***  permet.
+#### permet.
+    git config --global user.name "Prénom Nom"
 
-***git config --global user.email johndoe@example.com***  permet.
+#### permet.
+    git config --global user.email nomprenom@example.com
 
-***git config --global --list*** permet d'afficher facilement la configuration globale de Git.
+#### permet d'afficher facilement la configuration globale de Git.
+    git config --global --list
 
-***git init*** initialiser le projet Git.
+#### initialiser le projet Git.
+    git init
 
-***git add README.md***  permet.
+#### permet.
+    git add README.md
 
-***git commit -m"Mon premier commit"***  permet.
+#### permet.
+    git commit -m"Mon premier commit"
 
-***git clone git@github.com:danian3wa/reflections.git*** va automatiquement créer un dépôt Git local lié au dépôt distant.
+#### va automatiquement créer un dépôt Git local lié au dépôt distant.
+    git clone git@github.com:danian3wa/reflections.git
 
-***git clone git@github.com:danian3wa/reflections.git nouveau_nom***  permet.
+#### permet.
+    git clone git@github.com:danian3wa/reflections.git nouveau_nom
 
-***git status*** permet de visualiser les fichier non-suivis, modifiés ou indexés
+#### permet de visualiser les fichier non-suivis, modifiés ou indexés.
+    git status
 
-***git add .gitignore*** fichier permet.
+#### fichier permet.
+    git add .gitignore
 
-***git restore element_cibe*** annuler les modifications effectuées sur un fichier, afin de rétablir son état par rapport au dernier commit en date.
+#### annuler les modifications effectuées sur un fichier, afin de rétablir son état par rapport au dernier commit en date.
+    git restore element_cibe
 
-***git restore element_cibe --staged*** le fichier reviendra dans les fichiers modifiés/non-suivis, selon son état initial. En revanche, les modifications apportées à ce fichier ne seront pas perdues.
+#### le fichier reviendra dans les fichiers modifiés/non-suivis, selon son état initial. En revanche, les modifications apportées à ce fichier ne seront pas perdues.
+    git restore element_cibe --staged
 
-***git mv dossier_cibe nouveau_dossier_cibe*** Lorsque l'on souhaite déplacer "proprement" un fichier ou un répertoire.
+#### Lorsque l'on souhaite déplacer "proprement" un fichier ou un répertoire.
+    git mv dossier_cibe nouveau_dossier_cibe
 
-***git rm element_cibe*** perme de supprimer un fichier de l'espace de travail et de l'index de Git.
+#### perme de supprimer un fichier de l'espace de travail et de l'index de Git.
+    git rm element_cibe
 
-***git rm downloads/file.txt --cached*** permet de supprimer un fichier de l'index de Git sans pour autant supprimer celui-ci de l'espace de travail.
+#### permet de supprimer un fichier de l'index de Git sans pour autant supprimer celui-ci de l'espace de travail.
+    git rm downloads/file.txt --cached
+
 
 ## Fichier .gitignore
 
-    # permet d'ajouter un commentaire
+    #permet d'ajouter un commentaire
 
     * permet d'ignorer tous les éléments répondant à un certain pattern, par exemple *.docx ignore tous les documents Word
 
