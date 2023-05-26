@@ -111,19 +111,19 @@
 #### envoie les modifications locales vers le dépôt distant nommé origin et met à jour la branche exemple_pull_branch.
     git puch origin exemple_pull_branch
 
-#### 
+####  permet
     git remote add gitlab https://gitlab.com/dan.ian3wa/reveal.js
 
-#### 
-    it remote rename origin old-origin
+####  permet
+    git remote rename origin old-origin
 
-#### 
+####  permet
     git remote add origin https://gitlab.com/dan.ian3wa/reveal.js
 
-#### 
+####  permet
     git remote remove old-origin
 
-#### 
+####  permet
     git push origin master
 
 #### affiche tous les commits de la branche, du plus récent au plus ancien.
@@ -186,8 +186,8 @@
 ####  affiche les commits dont les modification contiennent la chaîne de caractères Hello et affiche les informations par défaut des commits, puis montre le détail des modifications qu'ils contiennent.
     git log -SHello -p
 
-#### 
-    git log --author
+#### Afficher les commits d'un auteur spécifique
+    git log --author="author"
 
 #### permet de Basculement sur la nouvelle branche '8.x' la branche '8.x' est paramétrée pour suivre 'origin/8.x'.
     git checkout 8.x
