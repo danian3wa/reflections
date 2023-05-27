@@ -216,3 +216,52 @@
 
 #### Afficher les commits contenant un message spécifique 
     git log-defi --grep="contenu à rechercher"
+
+#### ajoute des informations supplémentaires, telles que les noms de branches et les tags, aux commits.
+    git log --decorate
+
+#### donne l'historique des commits pour toutes les branches, et pas seulement la branche actuelle.
+    git log --all
+
+#### affiche les commits effectués après une date spécifique.
+    git log --since=<date>
+
+#### affiche les commits effectués après une date spécifique.
+    git log --after=<date>
+
+#### renseigne sur les commits effectués avant une date spécifique.
+    git log --until=<date>
+
+#### renseigne sur les commits effectués avant une date spécifique.
+    git log --before=<date>
+
+#### afficher un graphique en texte de l'historique des commits avec une ligne par commi avec les noms de branches et le tags pour toutes les branches
+    git log --graph --oneline --decorate --all
+
+#### Créez une nouvelle branche
+    $ git branch ma-branche
+
+#### permet de basculer entre différentes branches ou de récupérer des fichiers individuels depuis une branche spécifique
+    git checkout nom-de-la-branche
+
+#### git checkout peut également être utilisé pour créer une nouvelle branche et y basculer en une seule commande
+    git checkout -b nom-de-la-nouvelle-branche
+
+### on peut également créer une branche enfant d’une branche parent à partir de n’importe quelle branche existante, même si vous êtes sur la branche master
+    git checkout -b nom-branche-enfant branche-existante
+
+#### Pour connaître la liste des branches existantes dans votre projet et savoir sur quelle branche vous êtes
+    git branch –list
+
+#### permet de basculer sur la dernière branche ou vous étiez
+    git checkout -
+
+#### permet créer « nouvelle-branche » et de travailler dessus. La commande git switch a été introduite dans la version 2.23 de Git, c’est une alternative à la commande git checkout. Elle permet de basculer facilement entre les branches et de créer de nouvelles branches en une seule commande.
+    git switch -c nom-de-la-branche
+
+#### permet de supprimer une branche qui a été fusionée
+    git branch -d nom-de-la-branche
+
+#### permet de supprimer une branche qui n'a été fusionée
+    git branch -D nom-de-la-branche
+
