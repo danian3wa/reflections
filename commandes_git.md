@@ -16,14 +16,14 @@
 #### initialiser le projet Git.
     git init
 
-#### permet.
+#### permet d'ajouter le fichier dans l'index.
     git add README.md
 
-#### permet.
+#### permet d'enregistrer les modifications dans le dépôt.
     git commit -m"Mon premier commit"
 
-### permet 
-    git commit -a
+#### permet d'ajouter le ou les fichiers et d'enregistrer les modifications dans le dépôt
+    git commit -a -m"Mon deuxième commit"
 
 #### va automatiquement créer un dépôt Git local lié au dépôt distant.
     git clone git@github.com:danian3wa/reflections.git
