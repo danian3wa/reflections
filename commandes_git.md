@@ -22,6 +22,9 @@
 #### permet.
     git commit -m"Mon premier commit"
 
+### permet 
+    git commit -a
+
 #### va automatiquement créer un dépôt Git local lié au dépôt distant.
     git clone git@github.com:danian3wa/reflections.git
 
@@ -251,7 +254,7 @@
     git checkout -b nom-branche-enfant branche-existante
 
 #### Pour connaître la liste des branches existantes dans votre projet et savoir sur quelle branche vous êtes
-    git branch –list
+    git branch -–list
 
 #### permet de basculer sur la dernière branche ou vous étiez
     git checkout -
@@ -264,4 +267,3 @@
 
 #### permet de supprimer une branche qui n'a été fusionée
     git branch -D nom-de-la-branche
-
