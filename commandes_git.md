@@ -286,7 +286,7 @@
 #### 
     git push -u origin master
 
-#### permet de faire cela en réécrivant l'historique à partir de notre propre branche, et plus à partir d'une autre branche, grâce à l'option -i. L'option -i, ou --interactive, va nous permettre d'influer sur la liste des commits et les modifier.Le paramètre HEAD~3 est une notation relative signifiant trois commits avant HEAD (HEAD étant notre dernier commit), en spécifiant le nombre de commits avec ~, par exemple HEAD (le dernier commit), HEAD~1 (l'avant dernier commit), HEAD~2 (le troisième commit)...
+#### permet de faire cela en réécrivant l'historique à partir de notre propre branche, et plus à partir d'une autre branche, grâce à l'option -i. L'option -i, ou --interactive, va nous permettre d'influer sur la liste des commits et les modifier.Le paramètre HEAD~\3 est une notation relative signifiant trois commits avant HEAD (HEAD étant notre dernier commit), en spécifiant le nombre de commits avec ~, par exemple HEAD (le dernier commit), HEAD~\1 (l'avant dernier commit), HEAD~\2 (le troisième commit)...
     git rebase -i HEAD~3
 
 #### en spécifiant autant de ^ que de commits en arrière, par exemple HEAD (le dernier commit), HEAD^ (l'avant dernier commit), HEAD^^ (le troisième commit)...
@@ -319,5 +319,8 @@
 #### permet de visualiser 
     git show
 
-#### permet de rajouter les fichiers modifiée et les nouveaux fichiers au stage, mais pas les supprimes
+#### permet de rajouter les fichiers modifiée et les nouveaux fichiers au stage, aussi les fichiers a qui le nome commence par un .
     git add .
+
+#### permet de rajouter tout les fichiers dans le repertoire courant au stage, a l'exception au ficier a qui le nome commence par un .
+    git add *
