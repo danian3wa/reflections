@@ -16,14 +16,11 @@
 #### initialiser le projet Git.
     git init
 
-#### permet d'ajouter le fichier dans l'index.
+#### permet.
     git add README.md
 
-#### permet d'enregistrer les modifications dans le dépôt.
+#### permet.
     git commit -m"Mon premier commit"
-
-#### permet d'ajouter le ou les fichiers et d'enregistrer les modifications dans le dépôt
-    git commit -a -m"Mon deuxième commit"
 
 #### va automatiquement créer un dépôt Git local lié au dépôt distant.
     git clone git@github.com:danian3wa/reflections.git
@@ -254,7 +251,7 @@
     git checkout -b nom-branche-enfant branche-existante
 
 #### Pour connaître la liste des branches existantes dans votre projet et savoir sur quelle branche vous êtes
-    git branch -–list
+    git branch –list
 
 #### permet de basculer sur la dernière branche ou vous étiez
     git checkout -
@@ -267,3 +264,60 @@
 
 #### permet de supprimer une branche qui n'a été fusionée
     git branch -D nom-de-la-branche
+
+#### permet de fusionner nos commits à la suite des commits d'une branche commune
+    git merge nom-de-la-branche
+
+#### permet de récupérer des commits d'une branche commune sur notre branche en cours
+    git rebase nom-de-la-branche
+
+#### Dans le cas de conflits, il suffit de les résoudre à la main, d'ajouter les fichiers concernés et d'exécuter la commande
+    git rebase --continue
+
+#### Si, à un moment ou à un autre, nous souhaitons arrêter le rebase
+    git rebase --abort
+
+#### permet de vérifier que l'upstream n'a pas été modifié entre le moment où nous poussons et la dernière fois que nous avons récupéré la branche
+    git push --force-with-lease
+
+#### Un simple git push --force supprimerait les commits d'autres personnes, là où l'option --force-with-lease fera la vérification et refusera le push le cas échéant.
+    git push --force
+
+#### 
+    git push -u origin master
+
+#### permet de faire cela en réécrivant l'historique à partir de notre propre branche, et plus à partir d'une autre branche, grâce à l'option -i. L'option -i, ou --interactive, va nous permettre d'influer sur la liste des commits et les modifier.Le paramètre HEAD~3 est une notation relative signifiant trois commits avant HEAD (HEAD étant notre dernier commit), en spécifiant le nombre de commits avec ~, par exemple HEAD (le dernier commit), HEAD~1 (l'avant dernier commit), HEAD~2 (le troisième commit)...
+    git rebase -i HEAD~3
+
+#### en spécifiant autant de ^ que de commits en arrière, par exemple HEAD (le dernier commit), HEAD^ (l'avant dernier commit), HEAD^^ (le troisième commit)...
+    git rebase -i HEAD^^^
+
+#### notation absolue qui est le fait de fournir son hash (court ou long), par exemple f8fe732 ou f8fe732d0d002beb5fdb0ed606226bc36cd51e05
+    git rebase -i f8fe732
+
+#### Ce que Git nous indique, c'est que nous pouvons préfixer nos lignes par un des choix possibles, les réordonner ou en supprimer. Parmi les choix qui s'offrent à nous, les plus courants sont :
+
+    pick : utilise le commit tel quel, ne le modifie pas
+
+    reword : utilise le commit tel quel, mais propose de modifier son message
+
+    edit : applique le code, mais ne commit pas tout de suite, permettant de modifier le code ; git commit et git rebase --continue permettent de terminer l'opération
+
+    squash : permet de fusionner le commit dans le commit précédent (celui du haut) et permet de modifier son message
+
+    fixup : pareil que squash, mais garde seulement le message du commit précédent
+
+    drop : supprime le commit
+
+#### permet d'agir sur le dernier commit. Par exemple, si vous souhaitez modifier le dernier message de commi
+    git commit --amend
+
+#### permet de ajute de modification dans le commit precedent 
+    git add file_name
+    git commit --amend --no-edit
+
+#### permet de visualiser 
+    git show
+
+#### permet de rajouter les fichiers modifiée et les nouveaux fichiers au stage, mais pas les supprimes
+    git add .

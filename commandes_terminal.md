@@ -29,3 +29,9 @@
 
 #### l’usage de cette commande vous habilite à vider l'écran du terminal.
     clear
+
+#### permet de modifier le texte du fichier pour ajouter un point à la fin
+    sed -i s/world/world./g README.md
+
+#### permet ajouter un point d'exclamation à la fin
+    sed -i s/world/world\!/g README.md
