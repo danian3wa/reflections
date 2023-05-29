@@ -324,3 +324,24 @@
 
 #### permet de rajouter tout les fichiers dans le repertoire courant au stage, a l'exception au ficier a qui le nom commence par un .
     git add *
+
+#### Pour ne plus avoir à rename la branche principale de votre projet de "master" à "main" 
+    git config --global init.defaultBranch main
+
+#### permet de creer un commit vide
+    git commit -m"Initial revision" --allow-emty
+
+#### permet d'efacer la branche distante
+    git push origin --delete nom_de_la branche
+
+#### permet de puch sur la branche master apres git reset ou git reverse
+    git push origin master --forcee
+
+#### permet de fusioner des branche en incluant un seul commit
+    git cherry-pick 9245693612b451c7be67a093d1703891eaa3da41
+
+#### Cible un commit et créer un nouveau commit qui applique l'inverse de ses modifications
+    git revert 9245693612b451c7be67a093d1703891eaa3da41
+
+#### Avec cette commande on peut annuler la sélection de fichier faite avec git add, mais on peut aussi annuler des commits
+    git reset --hard HEAD~2
