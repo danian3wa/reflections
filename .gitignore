@@ -1,7 +1,7 @@
 
 ###> symfony/framework-bundle ###
 .DS_Store
-commandes_mac_os.md
+/commandes_mac_os.md
 /.idea
 /.idea/
 /.env.local
