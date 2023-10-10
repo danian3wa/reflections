@@ -12,13 +12,13 @@ history
 clear
 ```
 
-#### In the curent folder it create a file name liste.txt and write the name of files and directories in it.
+#### In the curent folder it creates a file name liste.txt and write the name of files and directories in it.
     
 ```bash
 ls >> liste.txt
 ```
 
-#### In the curent folder it create a file name liste2.txt and write the name of files, folders, subfolders, hiden files with size permision, owner in time order in it.
+#### In the curent folder it creates a file name liste2.txt and write the name of files, folders, subfolders, hiden files with size permision, owner in time order in it.
     
 ```bash
 ls -R -lat >> liste2.txt
@@ -30,7 +30,7 @@ ls -R -lat >> liste2.txt
 netstat -Watnlv | grep LISTEN | awk '{"ps -o comm= -p " $9 | getline procname;colred="\033[01;31m";colclr="\033[0m"; print cred "proto: " colclr $1 colred " | addr.port: " colclr $4 colred " | pid: " colclr $9 colred " | name: " colclr procname;  }' | column -t -s "|"
 ```
 
-#### kills (stop) the process with the pid number 588
+#### it kills (stops) the process with the pid number 588
     
 ```bash
 kill -9 588 
@@ -222,24 +222,6 @@ launchctl print system/com.apple.mediaremoted
 sudo launchctl disable system/com.apple.xartstorage
 ```
 
-#### sets your global Git username to Firstname Lastname
-    
-```bash
-git config --global user.name "Jhon DOE"
-```
-
-#### sets your global Git email address
-    
-```bash
-git config --global user.email jhon.doe@gmail.com
-```
-
-#### lists all of your global Git configuration settings
-    
-```bash
-git config --global --list
-```
-
 #### generates an ECDSA SSH key pair with a comment of your choice and saves the public key to ~/.ssh/id_github.pub. The -o option tells ssh-keygen to generate an OpenSSH format key pair. The -a option specifies the number of bits to use for the key. The -t option specifies the type of key to generate. The -f option specifies the file name to save the key pair to. The -C option specifies the comment to include in the key pair.
     
 ```bash
@@ -361,24 +343,6 @@ sudo npm install --global yarn
     
 ```bash
 npx -v
-```
-
-####
-    
-```bash
-ssh -T git@github.com
-```
-
-####
-    
-```bash
-ssh -vT git@github.com
-```
-
-####
-   
-```bash
- ssh -T jhondoe@github.com
 ```
 
 ####
@@ -945,7 +909,7 @@ sudo kextload /System/Library/Extensions/pflog.kext
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
 ```
 
-####
+#### queries the status of the pf firewall.
     
 ```bash
 sudo pfctl -s info
