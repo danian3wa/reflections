@@ -1,4 +1,4 @@
-# Commandes git
+# Commands git
 
 
 #### permet de verifier la version du git installé.
