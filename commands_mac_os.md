@@ -1,73 +1,115 @@
 # Apple macOS useful terminal commands
 
 #### command history list of all the commands that you have run in the terminal
-    
+
 ```bash
 history
 ```
 
 #### clears the terminal screen
-    
+
 ```bash
 clear
 ```
 
 #### In the curent folder it creates a file name liste.txt and write the name of files and directories in it.
-    
+
 ```bash
 ls >> liste.txt
 ```
 
 #### In the curent folder it creates a file name liste2.txt and write the name of files, folders, subfolders, hiden files with size permision, owner in time order in it.
-    
+
 ```bash
 ls -R -lat >> liste2.txt
 ```
 
 #### Show the curent network status details
-    
+
 ```bash
 netstat -Watnlv | grep LISTEN | awk '{"ps -o comm= -p " $9 | getline procname;colred="\033[01;31m";colclr="\033[0m"; print cred "proto: " colclr $1 colred " | addr.port: " colclr $4 colred " | pid: " colclr $9 colred " | name: " colclr procname;  }' | column -t -s "|"
 ```
 
 #### it kills (stops) the process with the pid number 588
-    
+
 ```bash
 kill -9 588 
 ```
 
 #### Show the curent network status details
-    
+
 ```bash
 sudo lsof -PiTCP -sTCP:LISTEN
 ```
 
 #### Show the curent network status details
-    
+
 ```bash
 netstat -anvp tcp | awk 'NR<3 || /LISTEN/'
 ```
 
 #### Show group access status details
-    
+
 ```bash
 dscl . -read /Groups/admin | grep GroupMembership 
 ```
 
+#### installs Homebrew on your Mac
+   
+```bash
+ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### appends the following lines to the .zprofile file in the /Users/username directory. These lines are used to initialize the Homebrew environment variables in the zsh shell.
+   
+```bash
+ (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/username/.zprofile
+```
+
+#### initializes the Homebrew environment variables in the current shell session. This is necessary for using Homebrew commands
+
+```bash
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+#### install Git using Homebrew
+   
+```bash
+ brew install git
+```
+
+#### install PHP using Homebrew
+    
+```bash
+brew install php
+```
+
+#### starts PHP services
+    
+```bash
+brew services start php
+```
+
 #### Show php processes
-      
+
 ```bash
 ps -ef | grep php  
 ```
 
+#### To install the Apache HTTP Server (httpd) on macOS using Homebrew
+
+```bash
+brew install httpd
+```
+
 #### start the Apache HTTP Server 
-    
+
 ```bash
 sudo apachectl start
 ```
 
 #### stop the Apache HTTP Server 
-    
+
 ```bash
 sudo apachectl stop
 ```
@@ -258,36 +300,6 @@ touch ~/.ssh/id_github
 brew upgrade
 ```
 
-#### installs Homebrew on your Mac
-   
-```bash
- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-#### appends the following lines to the .zprofile file in the /Users/username directory. These lines are used to initialize the Homebrew environment variables in the zsh shell.
-   
-```bash
- (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/username/.zprofile
-```
-
-#### initializes the Homebrew environment variables in the current shell session. This is necessary for using Homebrew commands
-    
-```bash
-eval "$(/opt/homebrew/bin/brew shellenv)"
-```
-
-#### install Git using Homebrew
-   
-```bash
- brew install git
-```
-
-#### install PHP using Homebrew
-    
-```bash
-brew install php
-```
-
 #### prints the version of Node.js that is installed on your system
     
 ```bash
@@ -304,12 +316,6 @@ npm -v
     
 ```bash
 sudo npm install -g npm@latest
-```
-
-#### To install the Apache HTTP Server (httpd) on macOS using Homebrew
-    
-```bash
-brew install httpd
 ```
 
 #### To install Composer, a dependency manager for PHP. It works by downloading the Composer installer script, verifying its integrity, and then running it.
@@ -544,10 +550,10 @@ ps aux | grep mediaremoted
 ####
     
 ```bash
-launchctl list |grep remoted
+launchctl list | grep remoted
 ```
 
-####
+#### will list all of the user accounts on your Mac. This includes both standard user accounts and administrator accounts.
     
 ```bash
 dscl . list /Users
@@ -559,64 +565,58 @@ dscl . list /Users
 sudo lsof -iTCP -sTCP:LISTEN -P -n
 ```
 
-####
-    
+#### will list the launchctl job for the OpenSSH SSH server. This job is responsible for starting and stopping the SSH server.
+
 ```bash
 sudo launchctl list com.openssh.sshd
 ```
 
 #### Turns on firewall logging
-    
+
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
 ```
 
-####
-    
+#### will send a HUP (hangup) signal to the socketfilterfw process. This will cause the socketfilterfw process to reload its configuration
+
 ```bash
 sudo pkill -HUP socketfilterfw
 ```
 
 ####
-    
+
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --blockapp /usr/libexec/remoted
 ```
 
 ####
-    
+
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getloggingopt
 ```
 
-####
-    
+#### will disable the Ethernet interface en0
+
 ```bash
-sudo ifconfig en6 down
+sudo ifconfig en0 down
 ```
 
-####
+#### list all of the extended attributes (xattrs) associated with the file.txt
 
 ```bash
-xattr -l /Users/daniel/01_09_2023_19_34.pcapng
+xattr -l /Users/username/file.txt
 ```  
 
 #### Remove the com.apple.metadata:kMDLabel_kruuibmgmssh6ixqtqvlyipf7m from commandes_mac_os.md file
-    
+
 ```bash
 xattr -d com.apple.metadata:kMDLabel_kruuibmgmssh6ixqtqvlyipf7m commandes_mac_os.md
 ```
 
-####
-    
-```bash
-mdls  /Users/username/yarn.lock
-```
+#### display the metadata associated with the file.txt
 
-####
-    
 ```bash
-mdls  /Users/username/commandes_mysql.md
+mdls  /Users/username/file.txt
 ```
 
 ####
@@ -625,8 +625,8 @@ mdls  /Users/username/commandes_mysql.md
 netstat -anvp tcp | awk 'NR<3 || /LISTEN/'
 ```
 
-####
-    
+#### will rebuild the Spotlight index. This will force Spotlight to re-index all of the files on your Mac, which can improve the accuracy of Spotlight searches.
+
 ```bash
 sudo mdutil -t
 ```
