@@ -170,7 +170,7 @@ tcp.flags.reset==1
 ip.geoip.src_city == "Paris"
 ```
 
-#### [YouTube Video Tutorial](https://www.youtube.com/watch?v=IlVppluWTHw&t=135s) - Enable GeoIP feature with Wireshark you need to download GeoIP [MaxMind databases](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbTcwSmQ1RUpWTERGUlJ1OGpMM25YYkN1a1J0Z3xBQ3Jtc0tsSmtmNXhEc0pLLUd1c0RYVV9GZERodmRDa2JRYmNQN0NfeUEtMElGd2ZIMjdxTDYwMGJzOHExY2lOMWotbVhXMVRrekhLSDRlYjlRSXRJQnFXdjI4SWdKYW81M01Ldi1NeXlNTWhpRHVNb09icHMxYw&q=https%3A%2F%2Fdev.maxmind.com%2Fgeoip%2Fgeolite2-free-geolocation-data%3Flang%3Den&v=IlVppluWTHw) then Menu -> Wireshark -> Preferences -> Name Resolution -> MaxMind database directories -> Edit -> + -> Databases Path -> OK
+#### [YouTube Video Tutorial](https://www.youtube.com/watch?v=IlVppluWTHw&t) - Enable GeoIP feature with Wireshark you need to download GeoIP [MaxMind databases](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data?lang=en) then Menu -> Wireshark -> Preferences -> Name Resolution -> MaxMind database directories -> Edit -> + -> Databases Path -> OK
 
 #### With MaxMind databases installed in wireshark click on a packet and then in Internet Protocol -> Source GeoIP -> right click on -> Source GeoIP Country -> Prepare as Filter -> Selected and type a ! in front of the command ip.geoip.src_country == "France", will show everything else there is not from France
 

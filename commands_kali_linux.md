@@ -37,3 +37,71 @@ update-grub
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+
+## Share Files Between Linux Machines Over a Network
+
+### Using Samba
+
+#### Installing and Setting up samba
+
+Firstly, let's install samba using apt:
+
+```bash
+sudo apt update
+sudo apt install samba
+```
+
+Next, let's confirm if the installation succeeded:
+
+```bash
+whereis samba
+```
+
+samba: /usr/sbin/samba ...
+
+Now, let's edit samba's configuration file to add the path to the directory we intend to share. For this example, we'll use sambashare which contains a child directory named doc1.
+
+Let's add the following lines at the bottom of the file:
+
+```bash
+sudo vi /etc/samba/smb.conf
+```
+
+```bash
+[sambashare]
+comment = Samba on Kali Linux
+path = /home/username/sambashare
+read only = no
+browsable = yes
+```
+
+Following, let's save the configuration file and restart samba for the changes to take effect:
+
+```bash
+sudo service smbd restart
+```
+
+Next, we must update the firewall rules to allow samba traffic:
+
+```bash
+sudo ufw allow Samba
+```
+
+Subsequently, we must create a samba user account for each user who accesses the shared directory. We'll use the smbpasswd command to set the samba password for each user:
+
+```bash
+sudo smbpasswd -a username
+```
+
+### Accessing Files Shared by Samba
+
+```bash
+smb://192.168.0.100/:
+```
+
+
+
+```bash
+
+```

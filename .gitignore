@@ -1,8 +1,6 @@
 
 ###> symfony/framework-bundle ###
 .DS_Store
-/.idea
-/.idea/
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -18,3 +16,6 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+/.idea
+/.idea/

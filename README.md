@@ -1,12 +1,12 @@
 # Reflections
 
 
-##  Top 10 Real World Wireshark Filters you need to know [commandes_wireshark.md](commandes_wireshark.md)
+##  Top 10 Real World Wireshark Filters you need to know [commands_wireshark.md](commands_wireshark.md)
 
 
-##  Useful Mac OS commands [commandes_mac_os.md](commandes_mac_os.md)
+##  Useful Mac OS commands [commands_mac_os.md](commands_mac_os.md)
 
-##  Useful Mac OS commands [commandes_git.md](commandes_git.md)
+##  Useful Mac OS commands [commands_git.md](commands_git.md)
 
 **Note:**
 
