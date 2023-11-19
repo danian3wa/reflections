@@ -18,6 +18,90 @@ pwd
 clear
 ```
 
+####  used to change the current working directory to the "Documents" directory
+
+```bash
+cd Documents
+```
+
+#### used to change the current working directory to the parent directory (one level up) in the file system hierarchy
+
+```bash
+cd ..
+```
+
+#### used to list the files and directories in the current working directory
+
+```bash
+ls
+```
+
+#### Provides a detailed, long-format listing that includes additional information such as file permissions, owner, group, size, and modification date.
+
+```bash
+ls -l
+```
+
+#### Shows hidden files as well (those whose names start with a dot .).
+
+```bash
+ls -a
+```
+
+#### Human-readable sizes, displaying file sizes in a more readable format (e.g., KB, MB)
+
+```bash
+ls -h
+```
+
+#### for a long-format listing with human-readable sizes.
+
+```bash
+ls -lh
+```
+
+#### used to create a new directory (folder) in a file system named "New folder"
+
+```bash
+mkdir New folder
+```
+
+#### used to create an empty file named "new_file.txt" in the current working directory
+
+```bash
+touch new_file.txt.
+```
+
+#### used to remove (delete) a file named "my_file.txt" in the current working directory
+
+```bash
+rm my_file.txt
+```
+
+#### remove a file without being prompted for confirmation, you can use the -f (force) option
+
+```bash
+rm -f my_file.txt
+```
+
+#### remove a directory and its contents, you may need to use the -r (recursive) option. Exercise caution when using the rm command, especially with the -r option, as it can lead to the irreversible deletion of files and directories.
+
+```bash
+rm -r My folder
+```   
+
+#### it will modify the "README.md" file by replacing every instance of "world" with "world." throughout the file
+
+```bash
+sed -i s/world/world./g README.md
+```
+
+#### replace every occurrence of the string "world" with "world!" in the "README.md" file and save the changes in-place. The \! is used to escape the exclamation mark to ensure it is treated as a literal character in the replacement string
+
+```bash
+sed -i s/world/world\!/g README.md
+```
+
 #### In the curent folder it creates a file name liste.txt and write the name of files and directories in it.
 
 ```bash
@@ -30,7 +114,7 @@ ls >> liste.txt
 ls -R -lat >> liste2.txt
 ```
 
-#### Show the curent network status details
+#### used to display information about listening network sockets, including the protocol, address and port, process ID (PID), and process name
 
 ```bash
 netstat -Watnlv | grep LISTEN | awk '{"ps -o comm= -p " $9 | getline procname;colred="\033[01;31m";colclr="\033[0m"; print cred "proto: " colclr $1 colred " | addr.port: " colclr $4 colred " | pid: " colclr $9 colred " | name: " colclr procname;  }' | column -t -s "|"
@@ -216,7 +300,7 @@ lsof -nP +c 15 | grep LISTE
 netstat -rn
 ```  
 
-#### shows hidden files on in macos Finder
+#### shows hidden files in macOS Finder
 
 ```bash
 defaults write com.apple.Finder AppleShowAllFiles true
@@ -227,7 +311,6 @@ defaults write com.apple.Finder AppleShowAllFiles true
 ```bash
 killall Finder
 ```
-
 
 #### This output indicates that there is a TCP socket listening on port 49000. The socket is in the LISTEN state, which means that it is waiting for connections from other hosts
 
