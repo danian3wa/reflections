@@ -8,7 +8,7 @@
 
 ##  Useful Git commands [commands_git.md](commands_git.md)
 
-##  Useful Linux commands [commands_kami_linux.md](commands_kali_linux.md)
+##  Useful Linux commands [commands_kali_linux.md](commands_kali_linux.md)
 
 **Note:**
 
