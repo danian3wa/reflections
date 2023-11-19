@@ -1,7 +1,5 @@
 # Apple macOS useful terminal commands
 
-## Everything needs to be verified and edit description
-
 #### command history list of all the commands that you have run in the terminal
 
 ```bash
@@ -634,29 +632,25 @@ xattr -d com.apple.metadata:kMDLabel_kruuibmgmssh6ixqtqvlyipf7m commandes_mac_os
 mdls  /Users/username/file.txt
 ```
 
-####
-
-```bash
-netstat -anvp tcp | awk 'NR<3 || /LISTEN/'
-```
-
 #### will rebuild the Spotlight index. This will force Spotlight to re-index all of the files on your Mac, which can improve the accuracy of Spotlight searches.
 
 ```bash
 sudo mdutil -t
 ```
 
-####
+####  it checks the status and integrity of the metadata index on the root volume. This test is useful for identifying potential issues with the indexing service and ensuring that the metadata index is functioning correctly.
 
 ```bash
 sudo mdutil -t /
 ```
 
-####
+#### used to manage the metadata indexing service on macOS. If indexing is currently disabled: The command will start the indexing process for all volumes. If indexing is currently enabled: The command will stop the indexing process for all volumes.
 
 ```bash
 sudo mdutil -a
 ```
+
+## Network on Mac OS
 
 #### displays the kernel routing table on Unix-like operating systems, including macOS. The routing table is used to determine how to route network traffic to its destination.
 
@@ -676,6 +670,12 @@ ifconfig
 ifconfig -a | grep '[<,]UP[,>]' | grep -v '[<,]LOOPBACK[,>]'
 ```
 
+####
+
+```bash
+netstat -anvp tcp | awk 'NR<3 || /LISTEN/'
+```
+
 #### Lists network connection type
 
 ```bash
@@ -688,7 +688,7 @@ networksetup -listallnetworkservices
 networksetup -listallhardwareports
 ```
 
-####
+#### switch the current user to the superuser or root user
 
 ```bash
 sudo su
@@ -774,151 +774,155 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw -l
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on
 ```
 
-####
+## Nmap Network Scanning
+
+####  scanning the IP address 216.163.128.20
 
 ```bash
 nmap 216.163.128.20
 ```
 
-####
+#### trace the route that packets take from your local machine to the destination IP address 216.163.128.20
 
 ```bash
 traceroute 216.163.128.20
 ```
 
-####
+#### TCP FIN scan against the IP address 216.163.128.20 . By sending a FIN packet and observing the response, the scanner can determine whether a port is open, closed, or filtered by a firewall.
 
 ```bash
 sudo nmap -sF 216.163.128.20
 ```
 
-####
+#### This is an option that specifies a UDP scan, the range of ports to scan and 1->100 and the target IP address
 
 ```bash
 sudo nmap -sU -p1-100 216.163.128.20
 ```
 
-####
+#### This option specifies the filename (scan_results.txt) where the scan results will be saved
    
 ```bash
-sudo nmap -o 216.163.128.20
+sudo nmap -o scan_results.txt 216.163.128.20
 ```
 
-####
+#### The -oD option is used to save results in a simple "greppable" format.
 
 ```bash
 sudo nmap -oD 216.163.128.20
 ```
 
-####
+#### -oG the greppable output format is designed to be easily processed by tools like grep, allowing you to quickly extract specific information from the scan results
+
+```bash
+sudo nmap -oG 216.163.128.20
+```
+
+#### use grep to extract open ports
+
+```bash
+grep '/open/' scan_results.txt
+```
+
+#### -Pn: This option tells Nmap to skip host discovery and assume that the target is online
 
 ```bash
 sudo nmap -Pn 216.163.128.20
 ```
 
-####
+#### This option specifies a list of decoy IP addresses separated by commas. These decoy addresses are used to obfuscate the true source of the scan.
 
 ```bash
-sudo nmap -D 216.163.128.20
+sudo nmap -D 192.168.1.2, 192.168.1.3, 192.168.1.4 216.163.128.20
 ```
 
-####
+#### -A: This option enables aggressive scanning, which includes various advanced and intrusive techniques. It is a shorthand for enabling several other options, including version detection (-sV), script scanning (-sC), and OS detection (-O). The -A option is often used for a more comprehensive and detailed scan.
 
 ```bash
 nmap -A 216.163.128.20
 ```
 
-####
+#### scan multiple hosts listed in a file (presumably net_home.txt). This assumes that net_home.txt contains a list of IP addresses or hostnames, with each entry on a separate line. The -A option will then be applied to each host listed in the file and save the output to a file named scan_results.txt.
 
 ```bash
-nmap -A net_home_22.txt 216.163.128.20
+nmap -A -iL net_home.txt > scan_results.txt
 ```
 
-####
+#### If you want to append the results to an existing file instead of overwriting it, you can use the >> operator
 
 ```bash
-nmap -A nethome2.txt 216.163.128.20
+nmap -A -iL net_home.txt >> scan_results.txt
 ```
 
-####
+#### ????
 
 ```bash
 nmpa -oS test.txt 216.163.128.20
 ```
 
-####
+#### ?????
 
 ```bash
-nmap -Pn digi_home_3.txt 216.163.128.20
+nmap -oB 216.163.128.20
 ```
 
-####
+#### performs a scan on the IP address 216.163.128.20 and saves the results in multiple formats using the specified base filename "digihome." The -oA option is a convenient way to save output in three major formats: normal (text), XML, and grepable.
 
 ```bash
-nmap -oB digihome2.txt 216.163.128.20
+nmap -oA digihome.txt 216.163.128.20
 ```
 
-####
-
-```bash
-nmap -oA digihome2.txt 216.163.128.20
-```
-
-#### scan all ports 1 to 65535
+#### The -p- option instructs Nmap to scan all 65535 ports rather than specifying a specific range.
 
 ```bash
 nmap -p- 216.163.128.20
 ```
 
-####
+##  PF packet filter on macOS
+
+#### display the current state of the packet filter (PF) rules
 
 ```bash
 sudo pfctl -sr
 ```
 
-####    
+#### used to add the IP address 216.163.128.20 to a table named "blockedips" within the PF firewall
 
 ```bash
 sudo pfctl -t blockedips -T add 216.163.128.20
 ```
 
-####
+#### used to reload the PF firewall rules from the specified configuration file, in this case, /etc/pf.conf
 
 ```bash
 sudo pfctl -f /etc/pf.conf
 ```
 
-####
+#### used to display the contents of the PF table named "blockedips"
 
 ```bash
 sudo pfctl -t blockedips -T show
 ```
 
-####
+#### used to load or reload PF firewall rules from the specified configuration file, in this case, /etc/pf.conf.local.
 
 ```bash
 sudo pfctl -f /etc/pf.conf.local
 ```
 
-####
+#### used to display information about the current state and configuration of the Packet Filter (PF) firewall
 
 ```bash
 sudo pfctl -s info
 ```
 
-####
+#### using the tcpdump tool to capture and display packet information from the PF (Packet Filter) firewall log interface (pflog0)
 
 ```bash
 sudo tcpdump -n -e -ttt -i pflog0\
 ```
 
-####
-   
-```bash
- sudo pfctl -f /etc/pf.conf.local
-```
-
-####
+#### used to load the PF (Packet Filter) logging kernel extension
 
 ```bash
 sudo kextload /System/Library/Extensions/pflog.kext
@@ -930,141 +934,148 @@ sudo kextload /System/Library/Extensions/pflog.kext
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
 ```
 
-#### queries the status of the pf firewall.
-
-```bash
-sudo pfctl -s info
-```
-
-####
+#### used to display the entire ruleset of the PF (Packet Filter) firewall, including the rules, options, and other configuration details. 
    
 ```bash
 sudo pfctl -sa
 ```
 
-#### queries the status of the pf firewall. It is equivalent to the command sudo pfctl -s info
+#### display the status of the PF (Packet Filter) firewall without printing the ruleset
 
 ```bash
 sudo pfctl -q
 ```
 
-####
-
-```bash
-ifconfig pflog0
-```
-
-####
+#### used to display the version of the PF (Packet Filter) firewall currently running on the system
 
 ```bash
 sudo pfctl -v
 ```
 
-####
+#### used to enable the PF (Packet Filter) firewall on macOS
 
 ```bash
 sudo pfctl -e
 ```
 
-####
+#### used to display the current ruleset of the PF (Packet Filter) firewall
 
 ```bash
-ifconfig pflog0
+sudo pfctl -s rules
 ```
 
-####
+## Network & Processes
+
+#### used to list open files and network connections on a system, specifically targeting the network connections that are using the port 8080.
 
 ```bash
-sudo tcpdump -v -n -e -ttt -i pflog0
+lsof -Pwni :8080
 ```
 
--------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-#### lsof -Pwni :8081
+#### lists all open files (including network connections) and filters for processes that are in a LISTEN state, indicating open ports
 
 ```bash
-lsof -Pwni :8081
+sudo lsof -i -P -n | grep LISTEN
 ```
 
-#### fuser -vn tcp 8081
+#### shows all network connections (both listening and established) and filters for those in a LISTEN state
 
 ```bash
-fuser -vn tcp 8081
+sudo netstat -an | grep LISTEN
 ```
 
-#### 
+#### uses Nmap to scan all ports on the localhost. Replace "localhost" with the actual IP address if you want to scan a specific machine
+
+```bash
+sudo nmap -p- localhost
+```
+
+#### show you processes that are using the specified TCP port (8080). The output will include details about the processes, such as the process ID (PID), user, and the type of connection
+
+```bash
+sudo lsof -i :8080
+```
+
+#### not working   ????!!!
+
+```bash
+fuser -vn tcp 8080
+```
+
+## Python
+
+#### used to check the version of Python 3 installed on your system
 
 ```bash
 python3 -V
 ```
 
-#### 
+#### used to upgrade the pip package, which is the package installer for Python
 
 ```bash
 pip3 install --upgrade pip
 ```
 
-#### 
+#### used to install Python packages listed in a requirements.txt file system-wide using the pip package manager
 
 ```bash
 sudo pip3 install -r requirements.txt
 ```
-#### 
+
+#### used to install the Xcode Command Line Tools 
 
 ```bash
 xcode-select --install
 ```
 
-#### 
+#### used to upgrade the pip package for the Python 3 interpreter that comes bundled with Xcode on macOS
 
 ```bash
 /Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install --upgrade pip
 ```
 
-#### 
+#### used to install portaudio
 
 ```bash
 brew install portaudio
 ```
 
-#### 
+#### used to install ffmpeg
 
 ```bash
 brew install ffmpeg
 ```
-#### 
+#### used to install PyAudio==0.2.13
 
 ```bash
 pip3 install PyAudio==0.2.13
 ```
 
-#### 
+####  used to install GoogleBard==0.0.7
 
 ```bash
 pip3 install GoogleBard==0.0.7
 ```
 
-#### 
+#### used to install playsound==1.2.2
 
 ```bash
 pip3 install playsound==1.2.2
 ```
 
-#### 
+#### used to install SpeechRecognition==3.10.0
 
 ```bash
 pip3 install SpeechRecognition==3.10.0
 ```
 
-#### 
+#### used to install openai_whisper==20230314
 
 ```bash
 pip3 install openai_whisper==20230314
 ```
 
-#### 
+#### used to install pyttsx3==2.90
 
 ```bash
 pip3 install pyttsx3==2.90
@@ -1076,15 +1087,191 @@ pip3 install pyttsx3==2.90
 
 ```
 
+#### 
 
+```bash
 
+```
 
+#### 
 
+```bash
 
+```
 
+#### 
 
+```bash
 
+```
 
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
+
+#### 
+
+```bash
+
+```
 
 
 

@@ -6,8 +6,10 @@
 
 ##  Useful Mac OS commands [commands_mac_os.md](commands_mac_os.md)
 
-##  Useful Mac OS commands [commands_git.md](commands_git.md)
+##  Useful Git commands [commands_git.md](commands_git.md)
+
+##  Useful Linux commands [commands_kami_linux.md](commands_kali_linux.md)
 
 **Note:**
 
-> This is a work in progress project.
+> Work in progress project.
