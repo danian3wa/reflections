@@ -447,108 +447,67 @@ sudo npm install --global yarn
 npx -v
 ```
 
-####
+#### start the SSH agent and set up the necessary environment variables for the current shell session
 
 ```bash
 eval "$(ssh-agent -s)"
 ```
 
-####
+#### display the fingerprints of all identities currently added to the SSH agent, specifically using the ECDSA (Elliptic Curve Digital Signature Algorithm) key type
 
 ```bash
 ssh-add -l -E ecdsa
 ```
 
-####
+#### display the fingerprints of all identities currently added to the SSH agent, specifically using the SHA-256 (Secure Hash Algorithm 256-bit) hash algorithm
 
 ```bash
 ssh-add -l -E sha256
 ```
 
-####
+#### test the SSH connection to the GitHub server on port 443
    
 ```bash
  ssh -T -p 443 git@ssh.github.com
 ```
 
-####
+#### test the SSH connection to the GitHub server
 
 ```bash
 ssh -T git@github.com
 ```
 
-####
-   
-```bash
- ssh -T -p 443 git@ssh.github.com
-```
-
-####
+#### test the SSH connection to the GitHub server with a specific username (johndoe)
 
 ```bash
 ssh -T jhondoe@github.com
 ```
 
-####
-
-```bash
-ssh -T git@github.com
-```
-
-####
+#### copy the contents of the specified file (~/.ssh/id_github.pub) into the system clipboard using the pbcopy command
 
 ```bash
 pbcopy < ~/.ssh/id_github.pub
 ```
 
-####
+#### display the global Git configuration settings for the currently configured user.
 
 ```bash
 git config --global --list
 ```
 
-####
+####  generate a new SSH key pair with the Ed25519 algorithm and a specified comment. -C "jhondoe@example.com": Adds a comment to the key. The comment is often used to label the key with information about its purpose or owner
 
 ```bash
 ssh-keygen -t ed25519 -C "jhondoe@example.com"
 ```
 
-####
-
-```bash
-eval "$(ssh-agent -s)"
-```
-
-####
+#### open the SSH configuration file (config) in the default text editor defined on your system. This command assumes that you have an SSH configuration file located in the ~/.ssh/ directory
 
 ```bash
 open ~/.ssh/config
 ```
 
-####
-   
-```bash
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-```
-####
-
-```bash
-pbcopy < ~/.ssh/id_ed25519.pub
-```
-
-####
-
-```bash
-ssh -T jhondoe@github.com
-```
-
-####
-
-```bash
-ssh -T -p 443 git@ssh.github.com
-```
-
-####
+#### test the SSH connection to the GitHub server with verbose output, providing detailed information about the connection process
 
 ```bash
 ssh -vT git@github.com
@@ -596,54 +555,55 @@ cd /usr/local/bin; ls -l | grep python3.11
 sudo ifconfig en6 up
 ```
 
-####
+#### used to add an SSH private key to the Apple Keychain on macOS
 
 ```bash
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-####
+#### disable a launchd service named "remoted" on macOS
 
 ```bash
 sudo launchctl disable remoted
 ```
 
-####
+#### disable the "com.apple.mediaremoted" service in the system domain using launchd on macOS
 
 ```bash
 sudo launchctl disable system/com.apple.mediaremoted
 ```
 
-####
+#### disable the "com.apple.remoted" service in the system domain using launchd on macOS
 
 ```bash
 sudo launchctl disable system/com.apple.remoted
 ```
 
-####
+####  list open files and the processes that opened them for a specific network port, in this case, port 49020
 
 ```bash
-sudo lsof -n -i :49155
+sudo lsof -n -i :49020
 ```
 
-####
+#### display information about network connections and listening sockets, specifically focusing on the lines that contain the string "49000."
 
 ```bash
 netstat -an | grep 49000
 ```
 
-####
+#### forcefully terminate a process with a specific process ID (PID) 297
 
 ```bash
 sudo kill -9 297
 ```
-####
+
+####  display information about processes that match the string "mediaremoted" in their command line or arguments
 
 ```bash
 ps aux | grep mediaremoted
 ```
 
-####
+#### list information about launchd services and find those whose names contain the string "remoted"
 
 ```bash
 launchctl list | grep remoted
@@ -655,7 +615,7 @@ launchctl list | grep remoted
 dscl . list /Users
 ```
 
-####
+#### list information about open files, specifically focusing on network-related information for processes that are listening for incoming connections
 
 ```bash
 sudo lsof -iTCP -sTCP:LISTEN -P -n
@@ -679,13 +639,13 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
 sudo pkill -HUP socketfilterfw
 ```
 
-####
+#### block network access for a specific application (remoted) using the built-in Application Firewall
 
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --blockapp /usr/libexec/remoted
 ```
 
-####
+#### retrieve the current logging options for the Application Firewall.
 
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getloggingopt
@@ -753,7 +713,7 @@ ifconfig
 ifconfig -a | grep '[<,]UP[,>]' | grep -v '[<,]LOOPBACK[,>]'
 ```
 
-####
+#### used to display information about active network connections and listening sockets, specifically focusing on TCP connections
 
 ```bash
 netstat -anvp tcp | awk 'NR<3 || /LISTEN/'
@@ -1011,7 +971,7 @@ sudo tcpdump -n -e -ttt -i pflog0\
 sudo kextload /System/Library/Extensions/pflog.kext
 ```
 
-####
+#### used to query and display the global state of the Application Firewall on macOS
 
 ```bash
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
