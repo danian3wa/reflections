@@ -16,11 +16,18 @@ cd  /etc/grub.d
 Create the password by typing this command
 
 ```bash
-grub2-mkpasswd-pbkdf2
+sudo grub-mkpasswd-pbkdf2
 ```
 
 After you enter the password, copy the whole generated code that appears.
-Now edit the file/etc/grub.d/10_linux using vim by following commands
+Now edit the file /etc/grub.d/10_linux using vim by following commands
+
+```bash
+sudo vim 10_linux
+```
+
+add this at the end of the 10_linux file
+
 ```bash
 cat << EOF
 set superusers="Username"
@@ -49,6 +56,9 @@ Firstly, let's install samba using apt:
 
 ```bash
 sudo apt update
+```
+
+```bash
 sudo apt install samba
 ```
 
