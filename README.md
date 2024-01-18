@@ -1,14 +1,10 @@
 # Reflections
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/reflections/blob/master/README.md)
-[![Total Downloads](http://poser.pugx.org/danian3wa/reflections/downloads)](https://packagist.org/packages/danian3wa/reflections)
 
 <a href="https://github.com/danian3wa/reflections/blob/master/LICENSE">
 <img src ="https://img.shields.io/github/license/danian3wa/reflections" />
 </a>
-<!--<a href="https://github.com/danian3wa/reflections/releases">
-<img src ="https://img.shields.io/github/release/danian3wa/reflections/releases" />
-</a>-->
 <a href="https://github.com/danian3wa/reflections/issues">
 <img src ="https://img.shields.io/github/issues/danian3wa/reflections" />
 </a>
