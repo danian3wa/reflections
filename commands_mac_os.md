@@ -1124,16 +1124,17 @@ pip3 install openai_whisper==20230314
 pip3 install pyttsx3==2.90
 ```
 
-#### 
+#### Disable IPv6 on Ethernet
 
 ```bash
+sudo networksetup -setv6off Ethernet
 
 ```
 
-#### 
+#### disable the Wi-Fi network service completely
 
 ```bash
-
+sudo networksetup -setnetworkserviceenabled "Wi-Fi" off
 ```
 
 #### 
